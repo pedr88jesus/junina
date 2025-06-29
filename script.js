@@ -1,22 +1,10 @@
-// Espera o DOM carregar
 document.addEventListener('DOMContentLoaded', () => {
-  inicializarMenu();
   inicializarAnimacoesScroll();
   inicializarBalao();
   configurarFormulario();
 });
 
-// Menu fixo (ativa link da página atual)
-function inicializarMenu() {
-  const links = document.querySelectorAll('.menu a');
-  links.forEach(link => {
-    if (link.href === window.location.href || link.href === window.location.origin + window.location.pathname) {
-      link.classList.add('active');
-    }
-  });
-}
-
-// Animação fade-in das seções ao rolar a página
+// Fade-in das seções
 function inicializarAnimacoesScroll() {
   const fadeEls = document.querySelectorAll('.fade-in');
   const observer = new IntersectionObserver((entries) => {
@@ -33,17 +21,12 @@ function inicializarAnimacoesScroll() {
   });
 }
 
-// Balão animado (cria e adiciona no body)
-function inicializarBalao() {
-  const balao = document.createElement('div');
-  balao.classList.add('balao-animado');
-  document.body.appendChild(balao);
-}
+// Cria o balão animado (já no HTML, só anima com CSS)
 
-// Formulário: validação, envio e modal + confete
+// Formulário com Formspree, confete e modal de confirmação
 function configurarFormulario() {
   const form = document.getElementById('formulario');
-  if (!form) return; // não executar se não existir no documento
+  if (!form) return; // só ativa onde tiver o formulário
 
   const nome = form.querySelector('#nome');
   const turma = form.querySelector('#turma');
@@ -62,12 +45,10 @@ function configurarFormulario() {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Reset erros
     errorNome.textContent = '';
     errorTurma.textContent = '';
 
     let valid = true;
-
     if (nome.value.trim() === '') {
       errorNome.textContent = 'Por favor, preencha o nome.';
       valid = false;
@@ -78,7 +59,6 @@ function configurarFormulario() {
     }
     if (!valid) return;
 
-    // Dados para enviar
     const dados = new FormData(form);
 
     try {
@@ -114,11 +94,6 @@ function configurarFormulario() {
     confete.style.animationDuration = 2 + Math.random() * 1.5 + 's';
     confete.style.opacity = 1;
     confeteContainer.appendChild(confete);
-
-    // Animar queda e fade
-    confete.style.animationName = 'confeteQueda';
-    confete.style.animationTimingFunction = 'ease-in';
-    confete.style.animationFillMode = 'forwards';
 
     setTimeout(() => {
       confete.remove();
