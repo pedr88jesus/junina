@@ -7,8 +7,13 @@ function mostrarModal() {
 }
 
 // Fechar modal
-document.getElementById('btn-fechar-modal').addEventListener('click', () => {
-  document.getElementById('modal').hidden = true;
+window.addEventListener('DOMContentLoaded', () => {
+  const btnFechar = document.getElementById('btn-fechar-modal');
+  if (btnFechar) {
+    btnFechar.addEventListener('click', () => {
+      document.getElementById('modal').hidden = true;
+    });
+  }
 });
 
 // Envio do formulário com interceptação
