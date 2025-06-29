@@ -2,94 +2,156 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Arraiá Nordestino - Escola 11 de Outubro</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <!-- Banner -->
+
   <header>
-    <img src="banner-junino.jpg" alt="Banner Festa Junina" class="banner" />
-    <h1>Arraiá Nordestino da Escola 11 de Outubro!</h1>
-    <p>Dia <strong>8 de julho</strong>, às <strong>8h da manhã</strong></p>
-    <p>📍 Rua Prof. Bento Mussurunga, 608 – Cambé, PR</p>
+    <div class="bandeirinhas" aria-hidden="true">🎏🎏🎏🎏🎏🎏🎏🎏🎏🎏</div>
+    <nav class="menu-fixo">
+      <ul>
+        <li><a href="#home" class="ativo">Home</a></li>
+        <li><a href="#programacao">Programação</a></li>
+        <li><a href="#comidas">Comidas</a></li>
+        <li><a href="#trajes">Trajes</a></li>
+        <li><a href="#inscricao">Inscrição</a></li>
+      </ul>
+    </nav>
+    <div id="home" class="header-conteudo">
+      <img src="banner-junino.jpg" alt="Banner Festa Junina" class="banner" />
+      <h1>Arraiá Nordestino da Escola 11 de Outubro!</h1>
+      <p>📅 <strong>8 de julho</strong> às <strong>8h da manhã</strong></p>
+      <p>📍 Rua Prof. Bento Mussurunga, 608 – Cambé, PR</p>
+    </div>
   </header>
 
-  <!-- Vídeo -->
-  <section id="video">
-    <h2>Assista nosso convite especial!</h2>
-    <div class="video-container">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/SEU_VIDEO_AQUI" 
-      title="Vídeo de Boas-Vindas" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </section>
-
-  <!-- Programação -->
-  <section id="programacao">
-    <h2>Programação da Festa</h2>
-    <table>
-      <tr><th>Horário</th><th>Atividade</th></tr>
-      <tr><td>08:00</td><td>Abertura com música e boas-vindas</td></tr>
-      <tr><td>08:30</td><td>Quadrilha mirim e juvenil</td></tr>
-      <tr><td>09:30</td><td>Concurso de trajes típicos</td></tr>
-      <tr><td>10:00</td><td>Brincadeiras juninas (pescaria, argola, correio elegante)</td></tr>
-      <tr><td>11:00</td><td>Encerramento com forró e fogueira</td></tr>
-    </table>
-  </section>
-
-  <!-- Comidas típicas -->
-  <section id="comidas">
-    <h2>Delícias Nordestinas</h2>
-    <ul>
-      <li>Canjica</li>
-      <li>Pamonha</li>
-      <li>Bolo de milho</li>
-      <li>Tapioca</li>
-      <li>Milho cozido</li>
-    </ul>
-  </section>
-
-  <!-- Trajes típicos -->
-  <section id="trajes">
-    <h2>Capriche no Look Junino!</h2>
-    <p>Confira sugestões de roupas típicas para brilhar no nosso Arraiá Nordestino!</p>
-    <div class="roupas">
-      <div>
-        <img src="camisa-xadrez.jpg" alt="Camisa Xadrez" />
-        <a href="https://shopee.com.br/Camisa-Xadrez-Masculina" target="_blank">Camisa Xadrez</a>
+  <main>
+    <section id="video" class="secao fade-in">
+      <h2>Assista nosso convite especial!</h2>
+      <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/SEU_VIDEO_AQUI" 
+          title="Vídeo de Boas-Vindas" frameborder="0" allowfullscreen></iframe>
       </div>
-      <div>
-        <img src="vestido-junino.jpg" alt="Vestido Junino" />
-        <a href="https://magazineluiza.com.br/vestido-infantil-junino" target="_blank">Vestido Junino</a>
-      </div>
-      <div>
-        <img src="chapeu.jpg" alt="Chapéu de Palha" />
-        <a href="https://amazon.com.br/chapeu-festa-junina" target="_blank">Chapéu de Palha</a>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Formulário -->
-  <section id="inscricao">
-    <h2>Confirme sua Presença</h2>
-    <form id="formulario">
-      <label for="nome">Nome:</label>
-      <input type="text" id="nome" required />
-      <label for="turma">Turma:</label>
-      <input type="text" id="turma" required />
-      <button type="submit">Confirmar</button>
-    </form>
-    <div id="lista-confirmados">
-      <h3>Confirmados:</h3>
-      <ul id="confirmados"></ul>
-    </div>
-  </section>
+    <section id="programacao" class="secao slide-in">
+      <h2>Programação da Festa</h2>
+      <table>
+        <thead>
+          <tr><th>Horário</th><th>Atividade</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>08:00</td><td>Abertura com música e boas-vindas</td></tr>
+          <tr><td>08:30</td><td>Quadrilha mirim e juvenil</td></tr>
+          <tr><td>09:30</td><td>Concurso de trajes típicos</td></tr>
+          <tr><td>10:00</td><td>Brincadeiras juninas (pescaria, argola, correio elegante)</td></tr>
+          <tr><td>11:00</td><td>Encerramento com forró e muita alegria</td></tr>
+        </tbody>
+      </table>
+    </section>
 
-  <!-- Rodapé -->
+    <section id="comidas" class="secao fade-in">
+      <h2>Delícias Nordestinas</h2>
+      <div class="cards-container">
+        <article class="card">
+          <img src="canjica.jpg" alt="Canjica" />
+          <h3>Canjica</h3>
+          <p>Doce tradicional feito com milho branco, leite e açúcar.</p>
+        </article>
+        <article class="card">
+          <img src="pamonha.jpg" alt="Pamonha" />
+          <h3>Pamonha</h3>
+          <p>Delícia feita de milho verde cozido na palha.</p>
+        </article>
+        <article class="card">
+          <img src="bolo-milho.jpg" alt="Bolo de Milho" />
+          <h3>Bolo de Milho</h3>
+          <p>Bolinho fofinho e saboroso, clássico da festa.</p>
+        </article>
+        <article class="card">
+          <img src="tapioca.jpg" alt="Tapioca" />
+          <h3>Tapioca</h3>
+          <p>Prato típico feito com goma de mandioca.</p>
+        </article>
+        <article class="card">
+          <img src="milho-cozido.jpg" alt="Milho Cozido" />
+          <h3>Milho Cozido</h3>
+          <p>Milho fresco cozido na hora para degustar.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="trajes" class="secao slide-in">
+      <h2>Capriche no Look Junino!</h2>
+      <p>Confira sugestões de roupas típicas para brilhar no nosso Arraiá Nordestino!</p>
+      <div class="roupas">
+        <div class="card">
+          <img src="camisa-xadrez.jpg" alt="Camisa Xadrez" />
+          <a href="https://shopee.com.br/Camisa-Xadrez-Masculina" target="_blank" rel="noopener noreferrer">Camisa Xadrez</a>
+        </div>
+        <div class="card">
+          <img src="vestido-junino.jpg" alt="Vestido Junino" />
+          <a href="https://magazineluiza.com.br/vestido-infantil-junino" target="_blank" rel="noopener noreferrer">Vestido Junino</a>
+        </div>
+        <div class="card">
+          <img src="chapeu.jpg" alt="Chapéu de Palha" />
+          <a href="https://amazon.com.br/chapeu-festa-junina" target="_blank" rel="noopener noreferrer">Chapéu de Palha</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="inscricao" class="secao fade-in">
+      <h2>Confirme sua Presença</h2>
+      <form id="formulario" novalidate>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required minlength="2" />
+        <small class="msg-erro" aria-live="polite"></small>
+
+        <label for="turma">Turma:</label>
+        <input type="text" id="turma" name="turma" required minlength="1" />
+        <small class="msg-erro" aria-live="polite"></small>
+
+        <button type="submit" class="btn-confirmar">Confirmar</button>
+      </form>
+
+      <div id="lista-confirmados" aria-live="polite">
+        <h3>Confirmados:</h3>
+        <ul id="confirmados"></ul>
+      </div>
+    </section>
+  </main>
+
   <footer>
-    <p>📍 Rua Prof. Bento Mussurunga, 608 – Cambé – PR | ☎️ (43) 3253-1692</p>
-    <p>&copy; 2025 Escola 11 de Outubro - Todos os direitos reservados</p>
+    <div class="footer-colunas">
+      <div>
+        <h4>Localização</h4>
+        <p>Rua Prof. Bento Mussurunga, 608 – Cambé, PR</p>
+        <p>☎️ (43) 3253-1692</p>
+      </div>
+      <div>
+        <h4>Redes Sociais</h4>
+        <p><a href="#">Facebook</a></p>
+        <p><a href="#">Instagram</a></p>
+        <p><a href="#">WhatsApp</a></p>
+      </div>
+      <div>
+        <h4>Escola 11 de Outubro</h4>
+        <p>&copy; 2025 - Todos os direitos reservados</p>
+      </div>
+    </div>
   </footer>
+
+  <!-- Modal de confirmação -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc" hidden>
+    <div class="modal-conteudo">
+      <h2 id="modalTitle">Confirmação enviada!</h2>
+      <p id="modalDesc">Obrigado por confirmar sua presença no Arraiá Nordestino!</p>
+      <button id="btn-fechar-modal" aria-label="Fechar modal">Fechar</button>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
