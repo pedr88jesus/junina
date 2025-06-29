@@ -1,56 +1,51 @@
 <!DOCTYPE html>
-<html lang="pt-BR" >
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Arraiá Nordestino - Escola 11 de Outubro</title>
   <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
 </head>
 <body>
-
-<header class="sticky-header">
-  <nav>
-    <ul class="menu">
-      <li><a href="index.html" class="active">Início</a></li>
-      <li><a href="programacao.html">Programação</a></li>
-      <li><a href="comidas.html">Comidas</a></li>
-      <li><a href="trajes.html">Trajes</a></li>
-      <li><a href="inscricao.html">Inscrição</a></li>
-    </ul>
+  <nav class="menu">
+    <a href="index.html" class="active">Home</a>
+    <a href="programacao.html">Programação</a>
+    <a href="comidas.html">Comidas</a>
+    <a href="trajes.html">Trajes</a>
+    <a href="inscricao.html">Inscrição</a>
   </nav>
-</header>
 
-<main>
-  <section class="banner-section">
-    <img src="images/banner-junino.jpg" alt="Banner Festa Junina" class="banner-img" />
-    <div class="banner-text">
+  <header class="fade-in">
+    <div class="banner-container">
+      <img src="images/banner-junino.jpg" alt="Banner Festa Junina" class="banner" />
       <h1>Arraiá Nordestino da Escola 11 de Outubro!</h1>
-      <p><strong>Dia 8 de julho, às 8h da manhã</strong></p>
+      <p>Dia <strong>8 de julho</strong>, às <strong>8h da manhã</strong></p>
       <p>📍 Rua Prof. Bento Mussurunga, 608 – Cambé, PR</p>
     </div>
-  </section>
+  </header>
 
-  <section class="convite-video fade-in">
+  <section id="video" class="fade-in">
     <h2>Assista nosso convite especial!</h2>
     <div class="video-container">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/SEU_VIDEO_AQUI" 
-      title="Vídeo de Boas-Vindas" frameborder="0" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/SEU_VIDEO_AQUI" title="Vídeo de Boas-Vindas" frameborder="0" allowfullscreen></iframe>
     </div>
   </section>
 
-  <section class="intro-text fade-in">
-    <p>Venha celebrar a tradição nordestina com muita alegria, música e comidas típicas!</p>
+  <section id="sobre" class="fade-in">
+    <h2>Venha celebrar conosco!</h2>
+    <p>Um dia de muita alegria, música, comidas típicas e brincadeiras para todas as idades.</p>
   </section>
-</main>
 
-<div class="balao-animado"></div>
+  <footer>
+    <p>📍 Rua Prof. Bento Mussurunga, 608 – Cambé – PR | ☎️ (43) 3253-1692</p>
+    <p>&copy; 2025 Escola 11 de Outubro - Todos os direitos reservados</p>
+  </footer>
 
-<footer>
+  <div id="confete-container"></div>
+  <div class="balao-animado"></div>
   <div class="fogueira-footer"></div>
-  <p>📍 Rua Prof. Bento Mussurunga, 608 – Cambé – PR | ☎️ (43) 3253-1692</p>
-  <p>&copy; 2025 Escola 11 de Outubro - Todos os direitos reservados</p>
-</footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
+
