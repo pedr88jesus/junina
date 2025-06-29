@@ -2,11 +2,12 @@
 function mostrarModal() {
   const modal = document.getElementById('modal');
   modal.hidden = false;
+  modal.classList.add('fade-in');
   startConfetti();
   setTimeout(() => stopConfetti(), 5000);
 }
 
-// Fechar modal
+// Fechar modal ao clicar no botão
 window.addEventListener('DOMContentLoaded', () => {
   const btnFechar = document.getElementById('btn-fechar-modal');
   if (btnFechar) {
@@ -16,10 +17,14 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// Envio do formulário com interceptação
+// Envio do formulário via Formspree com feedback visual
 const form = document.getElementById('formulario');
+const submitButton = form.querySelector('button');
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
+  submitButton.disabled = true;
+  submitButton.textContent = 'Enviando...';
+
   const data = new FormData(form);
   const response = await fetch(form.action, {
     method: form.method,
@@ -27,28 +32,32 @@ form.addEventListener('submit', async (e) => {
     headers: { 'Accept': 'application/json' }
   });
 
+  submitButton.disabled = false;
+  submitButton.textContent = 'Marcar Presença';
+
   if (response.ok) {
     form.reset();
     mostrarModal();
   } else {
-    alert('Ocorreu um erro. Tente novamente.');
+    alert('Erro ao enviar. Tente novamente.');
   }
 });
 
-// Aplica animação fade-in quando a seção entra na viewport
+// Ativa animação fade-in ao rolar a página usando IntersectionObserver
 function animarAoRolar() {
-  const elements = document.querySelectorAll('.fade-in');
-  elements.forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) {
-      el.classList.add('visible');
-    }
-  });
-}
-window.addEventListener('scroll', animarAoRolar);
-window.addEventListener('load', animarAoRolar);
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
 
-// Confetti animation (usando canvas)
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+}
+window.addEventListener('DOMContentLoaded', animarAoRolar);
+
+// Confetti
 const confettiCanvas = document.getElementById('confetti');
 const ctx = confettiCanvas.getContext('2d');
 let confettiParticles = [];

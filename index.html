@@ -4,16 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Arraiá Nordestino - Escola 11 de Outubro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Balão animado -->
-  <div class="balao"></div>
 
   <!-- Menu fixo -->
   <nav class="menu-fixo">
     <ul>
-      <li><a href="#home">Home</a></li>
+      <li><a href="#home">Início</a></li>
       <li><a href="#programacao">Programação</a></li>
       <li><a href="#comidas">Comidas</a></li>
       <li><a href="#trajes">Trajes</a></li>
@@ -21,29 +20,30 @@
     </ul>
   </nav>
 
-  <!-- Banner -->
-  <header id="home" class="secao fade-in">
-    <div class="bandeirinhas">🎏 🎏 🎏 🎏 🎏 🎏 🎏 🎏 🎏 🎏</div>
+  <!-- Balão animado -->
+  <div class="balao" aria-hidden="true"></div>
+
+  <!-- Canvas para confetti -->
+  <canvas id="confetti"></canvas>
+
+  <!-- Seção Home -->
+  <section id="home" class="secao fade-in">
     <img src="banner-junino.jpg" alt="Banner Festa Junina" class="banner" />
     <h1>Arraiá Nordestino da Escola 11 de Outubro!</h1>
     <p>Dia <strong>8 de julho</strong>, às <strong>8h da manhã</strong></p>
     <p>📍 Rua Prof. Bento Mussurunga, 608 – Cambé, PR</p>
-  </header>
+  </section>
 
   <!-- Programação -->
   <section id="programacao" class="secao fade-in">
     <h2>Programação da Festa</h2>
     <table>
-      <thead>
-        <tr><th>Horário</th><th>Atividade</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>08:00</td><td>Abertura com música e boas-vindas</td></tr>
-        <tr><td>08:30</td><td>Quadrilha mirim e juvenil</td></tr>
-        <tr><td>09:30</td><td>Concurso de trajes típicos</td></tr>
-        <tr><td>10:00</td><td>Brincadeiras juninas (pescaria, argola, correio elegante)</td></tr>
-        <tr><td>11:00</td><td>Encerramento com alegria e festa!</td></tr>
-      </tbody>
+      <tr><th>Horário</th><th>Atividade</th></tr>
+      <tr><td>08:00</td><td>Abertura com música e boas-vindas</td></tr>
+      <tr><td>08:30</td><td>Quadrilha mirim e juvenil</td></tr>
+      <tr><td>09:30</td><td>Concurso de trajes típicos</td></tr>
+      <tr><td>10:00</td><td>Brincadeiras juninas (pescaria, argola, correio elegante)</td></tr>
+      <tr><td>11:00</td><td>Encerramento com forró e fogueira</td></tr>
     </table>
   </section>
 
@@ -51,23 +51,50 @@
   <section id="comidas" class="secao fade-in">
     <h2>Delícias Nordestinas</h2>
     <div class="cards-container">
-      <div class="card"><img src="canjica.jpg" alt="Canjica" /><h3>Canjica</h3></div>
-      <div class="card"><img src="pamonha.jpg" alt="Pamonha" /><h3>Pamonha</h3></div>
-      <div class="card"><img src="bolo-milho.jpg" alt="Bolo de Milho" /><h3>Bolo de Milho</h3></div>
+      <div class="card">
+        <img src="canjica.jpg" alt="Canjica" />
+        <p>Canjica</p>
+      </div>
+      <div class="card">
+        <img src="pamonha.jpg" alt="Pamonha" />
+        <p>Pamonha</p>
+      </div>
+      <div class="card">
+        <img src="bolo-milho.jpg" alt="Bolo de Milho" />
+        <p>Bolo de milho</p>
+      </div>
+      <div class="card">
+        <img src="tapioca.jpg" alt="Tapioca" />
+        <p>Tapioca</p>
+      </div>
+      <div class="card">
+        <img src="milho-cozido.jpg" alt="Milho Cozido" />
+        <p>Milho cozido</p>
+      </div>
     </div>
   </section>
 
   <!-- Trajes -->
   <section id="trajes" class="secao fade-in">
     <h2>Capriche no Look Junino!</h2>
+    <p>Confira sugestões de roupas típicas para brilhar no nosso Arraiá Nordestino!</p>
     <div class="roupas">
-      <div><img src="camisa-xadrez.jpg" alt="Camisa Xadrez" /><a href="#">Camisa Xadrez</a></div>
-      <div><img src="vestido-junino.jpg" alt="Vestido Junino" /><a href="#">Vestido Junino</a></div>
-      <div><img src="chapeu.jpg" alt="Chapeu de Palha" /><a href="#">Chapéu de Palha</a></div>
+      <div>
+        <img src="camisa-xadrez.jpg" alt="Camisa Xadrez" />
+        <a href="https://shopee.com.br/Camisa-Xadrez-Masculina" target="_blank" rel="noopener noreferrer">Camisa Xadrez</a>
+      </div>
+      <div>
+        <img src="vestido-junino.jpg" alt="Vestido Junino" />
+        <a href="https://magazineluiza.com.br/vestido-infantil-junino" target="_blank" rel="noopener noreferrer">Vestido Junino</a>
+      </div>
+      <div>
+        <img src="chapeu.jpg" alt="Chapéu de Palha" />
+        <a href="https://amazon.com.br/chapeu-festa-junina" target="_blank" rel="noopener noreferrer">Chapéu de Palha</a>
+      </div>
     </div>
   </section>
 
-  <!-- Formulário -->
+  <!-- Inscrição -->
   <section id="inscricao" class="secao fade-in">
     <h2>Confirme sua Presença</h2>
     <form id="formulario" action="https://formspree.io/f/xyzwav" method="POST">
@@ -75,30 +102,25 @@
       <input type="text" id="nome" name="nome" required />
       <label for="turma">Turma:</label>
       <input type="text" id="turma" name="turma" required />
-      <button type="submit">Confirmar</button>
+      <button type="submit">Marcar Presença</button>
     </form>
   </section>
 
-  <!-- Modal de confirmação -->
-  <div id="modal" class="modal" hidden>
-    <div class="modal-conteudo">
-      <h2>Confirmação enviada!</h2>
-      <p>Obrigado por confirmar sua presença no Arraiá!</p>
-      <button id="btn-fechar-modal">Fechar</button>
-    </div>
-  </div>
-
-  <!-- Explosão de confete -->
-  <canvas id="confetti"></canvas>
-
-  <!-- Fogueira animada -->
-  <div class="fogueira"></div>
-
-  <!-- Rodapé -->
-  <footer class="fade-in">
+  <!-- Rodapé com fogueira -->
+  <footer>
+    <div class="fogueira" aria-hidden="true"></div>
     <p>📍 Rua Prof. Bento Mussurunga, 608 – Cambé – PR | ☎️ (43) 3253-1692</p>
     <p>&copy; 2025 Escola 11 de Outubro - Todos os direitos reservados</p>
   </footer>
+
+  <!-- Modal de confirmação -->
+  <div id="modal" class="modal" hidden aria-modal="true" role="dialog" aria-labelledby="modalTitulo" aria-describedby="modalDescricao">
+    <div class="modal-conteudo">
+      <h3 id="modalTitulo">Confirmação Enviada!</h3>
+      <p id="modalDescricao">Obrigado por confirmar sua presença no Arraiá.</p>
+      <button id="btn-fechar-modal">Fechar</button>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
