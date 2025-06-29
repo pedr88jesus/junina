@@ -3,287 +3,407 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: #fffbe6 url('fundo-chita.jpg');
+  background: #fff8e1;
   color: #3e2723;
-}
-
-/* Fontes para títulos */
-h1, h2, h3 {
-  font-family: 'Pacifico', cursive;
-  color: #bf360c;
-  margin-bottom: 1rem;
-}
-
-p, label {
-  font-size: 1rem;
+  line-height: 1.6;
+  min-height: 100vh;
+  position: relative;
+  padding-top: 60px; /* espaço para menu fixo */
 }
 
 /* Menu fixo */
-.menu-fixo {
+.sticky-header {
   position: fixed;
   top: 0;
   width: 100%;
-  background: #ffe082;
-  padding: 0.5rem;
+  background: #ffb300;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   z-index: 999;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.menu-fixo ul {
+.menu {
+  list-style: none;
   display: flex;
   justify-content: center;
   gap: 2rem;
-  list-style: none;
+  padding: 1rem 0;
 }
 
-.menu-fixo a {
+.menu li a {
+  color: #3e2723;
   text-decoration: none;
-  color: #4e342e;
-  font-weight: 700;
+  font-weight: 600;
+  font-size: 1.1rem;
   transition: color 0.3s;
 }
 
-.menu-fixo a:hover {
-  color: #d84315;
-}
-
-/* Seções */
-.secao {
-  padding: 6rem 2rem 3rem;
-  max-width: 960px;
-  margin: 0 auto 2rem;
-  background: #fff3e0;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+.menu li a:hover,
+.menu li a.active {
+  color: #bf360c;
 }
 
 /* Banner */
-.banner {
-  width: 100%;
-  max-height: 300px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-}
-
-/* Cards de comidas */
-.cards-container {
+.banner-section {
+  max-width: 960px;
+  margin: 2rem auto;
   display: flex;
-  gap: 1rem;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem;
+  background: #fff3e0;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
   flex-wrap: wrap;
-  justify-content: center;
 }
 
-.card {
-  width: 150px;
-  text-align: center;
-  background: #fffde7;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
-}
-
-.card:hover {
-  transform: scale(1.05);
-}
-
-.card img {
-  width: 100%;
-  height: 100px;
+.banner-img {
+  flex: 1 1 300px;
+  max-width: 400px;
+  border-radius: 12px;
   object-fit: cover;
+  box-shadow: 0 4px 10px rgb(0 0 0 / 0.15);
 }
 
-.card p {
-  padding: 0.5rem;
-  font-weight: bold;
+.banner-text {
+  flex: 1 1 300px;
+  color: #bf360c;
 }
 
-/* Roupas */
-.roupas {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.roupas div {
-  width: 200px;
-  text-align: center;
-}
-
-.roupas img {
-  width: 100%;
-  border-radius: 8px;
+.banner-text h1 {
+  font-size: 2.5rem;
   margin-bottom: 0.5rem;
 }
 
-.roupas a {
+/* Seções e títulos */
+main {
+  max-width: 960px;
+  margin: auto;
+  padding: 1rem;
+}
+
+h1, h2 {
+  color: #bf360c;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideIn 0.8s forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Video */
+.video-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.video-container iframe {
+  width: 100%;
+  max-width: 560px;
+  height: 315px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+}
+
+/* Programação */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+th, td {
+  border: 1px solid #ffb74d;
+  padding: 0.75rem;
+  text-align: center;
+  background-color: #fffde7;
+}
+
+th {
+  background-color: #ffe082;
+  color: #bf360c;
+  font-weight: 700;
+}
+
+/* Comidas e Trajes */
+.comidas-lista, .roupas-lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.comida-item, .roupa-item {
+  background: #fff3e0;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+  padding: 1rem;
+  width: 220px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.comida-item:hover, .roupa-item:hover {
+  transform: translateY(-8px);
+}
+
+.comida-item img, .roupa-item img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 0.75rem;
+  object-fit: cover;
+  height: 140px;
+}
+
+.comida-item h3, .roupa-item h3 {
+  color: #bf360c;
+  margin-bottom: 0.5rem;
+}
+
+.roupa-item a {
   display: inline-block;
-  background-color: #f57c00;
+  background: #f57c00;
   color: white;
   padding: 0.5rem 1rem;
+  border-radius: 6px;
   text-decoration: none;
-  border-radius: 5px;
+  font-weight: 600;
   transition: background-color 0.3s;
 }
 
-.roupas a:hover {
-  background-color: #e64a19;
+.roupa-item a:hover {
+  background: #e64a19;
 }
 
 /* Formulário */
 form {
+  max-width: 400px;
+  margin: 1rem auto 3rem auto;
+  background: #fff3e0;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-top: 1rem;
 }
 
-input, button {
+label {
+  font-weight: 600;
+  color: #bf360c;
+}
+
+input[type="text"] {
   padding: 0.75rem;
-  font-size: 1rem;
-  border-radius: 5px;
+  border-radius: 6px;
   border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border-color 0.3s;
 }
 
-button {
+input[type="text"]:focus {
+  border-color: #f57c00;
+  outline: none;
+}
+
+.error-msg {
+  color: #d32f2f;
+  font-size: 0.85rem;
+  height: 18px;
+}
+
+button[type="submit"] {
   background-color: #ff7043;
   color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
-button:hover:not(:disabled) {
+button[type="submit"]:hover {
   background-color: #e64a19;
   transform: scale(1.05);
-}
-
-button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
 }
 
 /* Modal */
 .modal {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.5);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(62, 39, 35, 0.85);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
-  opacity: 0;
-  pointer-events: none;
+  z-index: 2000;
+  opacity: 1;
   transition: opacity 0.3s ease;
 }
 
-.modal:not([hidden]) {
-  opacity: 1;
-  pointer-events: auto;
+.modal.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
-.modal-conteudo {
-  background: #fffde7;
-  padding: 2rem;
-  border-radius: 10px;
+.modal-content {
+  background: #fff3e0;
+  padding: 2rem 3rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgb(0 0 0 / 0.25);
   text-align: center;
-  animation: fadeInScale 0.3s ease forwards;
+  max-width: 350px;
+  color: #3e2723;
 }
 
-@keyframes fadeInScale {
-  0% {opacity: 0; transform: scale(0.9);}
-  100% {opacity: 1; transform: scale(1);}
+.modal-content h2 {
+  margin-bottom: 1rem;
+  color: #bf360c;
 }
 
-.modal-conteudo button {
-  margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
-  background-color: #f57c00;
-  border: none;
+.modal-content button {
+  background-color: #ff7043;
   color: white;
-  border-radius: 5px;
-  font-weight: 700;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.modal-conteudo button:hover {
+.modal-content button:hover {
   background-color: #e64a19;
 }
 
-/* Confetti */
-#confetti {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
+/* Confete */
+#confete-container {
   pointer-events: none;
-  z-index: 9998;
-}
-
-/* Fogueira animada com CSS */
-.fogueira {
-  position: relative;
-  height: 150px;
-  margin-top: 1rem;
-  background:
-    radial-gradient(circle at 50% 80%, #ff6f00 20%, transparent 60%),
-    radial-gradient(circle at 50% 40%, #ffb300 20%, transparent 60%);
-  animation: flicker 1.5s infinite alternate;
-  border-radius: 50% / 20%;
-  filter: drop-shadow(0 0 6px #ffb300);
-}
-
-/* Para as chamas oscilarem */
-@keyframes flicker {
-  0% { filter: drop-shadow(0 0 6px #ffb300) drop-shadow(0 0 15px #ff6f00); }
-  100% { filter: drop-shadow(0 0 10px #ffb300) drop-shadow(0 0 20px #ff6f00); }
-}
-
-/* Balão subindo animado */
-.balao {
   position: fixed;
-  bottom: -100px;
-  left: 30px;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: visible;
+  z-index: 1500;
+}
+
+/* Balão animado */
+.balao-animado {
+  position: fixed;
+  bottom: 0;
+  left: 10px;
   width: 60px;
-  height: 80px;
-  background: url('balao.png') no-repeat center/contain;
-  animation: subir 15s linear infinite;
-  z-index: 0;
+  height: 90px;
+  background: radial-gradient(circle at 30% 40%, #ff5722, #bf360c);
+  border-radius: 40% 40% 50% 50% / 60% 60% 40% 40%;
+  animation: balaoSubindo 10s linear infinite;
+  box-shadow: inset 0 5px 15px rgba(255, 87, 34, 0.8);
+  z-index: 1000;
 }
 
-@keyframes subir {
-  0% { transform: translateY(100vh); }
-  100% { transform: translateY(-150%); }
+@keyframes balaoSubindo {
+  0% {
+    transform: translateY(100vh) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh) translateX(20px);
+    opacity: 0;
+  }
 }
 
-/* Fade-in para seções */
-.fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1s ease, transform 1s ease;
+/* Fogueira animada no rodapé */
+footer {
+  position: relative;
+  background: #ffe082;
+  text-align: center;
+  padding: 2rem 1rem 3rem;
+  color: #4e342e;
+  margin-top: 3rem;
 }
 
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
+.fogueira-footer {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 140px;
+  background:
+    radial-gradient(circle at center, #ff7043 20%, transparent 70%),
+    radial-gradient(circle at 40% 60%, #ffccbc 30%, transparent 80%);
+  border-radius: 50% 50% 50% 50%;
+  box-shadow:
+    0 0 20px 8px rgba(255,112,67,0.8),
+    0 0 40px 15px rgba(255, 160, 122, 0.7);
+  animation: fogoBrilhando 2s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 5px #ff5722);
+  z-index: 10;
+}
+
+@keyframes fogoBrilhando {
+  0% { box-shadow:
+    0 0 20px 8px rgba(255,112,67,0.8),
+    0 0 40px 15px rgba(255, 160, 122, 0.7);
+  }
+  100% { box-shadow:
+    0 0 35px 15px rgba(255,112,67,1),
+    0 0 60px 20px rgba(255, 160, 122, 1);
+  }
 }
 
 /* Responsividade */
-@media (max-width: 768px) {
-  .cards-container, .roupas {
+@media (max-width: 700px) {
+  .banner-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .banner-img {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .comidas-lista, .roupas-lista {
     flex-direction: column;
     align-items: center;
   }
-  .menu-fixo ul {
+
+  .menu {
     flex-wrap: wrap;
     gap: 1rem;
+  }
+
+  .menu li {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+
+  form {
+    width: 90%;
+    margin: 1rem auto 3rem;
   }
 }
