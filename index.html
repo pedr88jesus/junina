@@ -1,56 +1,119 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Arraiá Nordestino - Escola 11 de Outubro</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arraiá Nordestino da Escola 11 de Outubro</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="sticky-header">
-    <nav>
-      <ul class="menu">
-        <li><a href="index.html" class="active">Início</a></li>
-        <li><a href="programacao.html">Programação</a></li>
-        <li><a href="comidas.html">Comidas</a></li>
-        <li><a href="trajes.html">Trajes</a></li>
-        <li><a href="inscricao.html">Inscrição</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo_escola.png" alt="Logo Escola 11 de Outubro">
+                <h1>Escola 11 de Outubro</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#brincadeiras">Brincadeiras</a></li>
+                    <li><a href="#trajes">Trajes Típicos</a></li>
+                    <li><a href="#inscricao">Inscrição</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <main>
-    <section class="banner-section">
-      <img src="images/banner-junino.jpg" alt="Banner Festa Junina" class="banner-img" />
-      <div class="banner-text">
-        <h1>Arraiá Nordestino da Escola 11 de Outubro!</h1>
-        <p><strong>Dia 8 de julho, às 8h da manhã</strong></p>
-        <p>📍 Rua Prof. Bento Mussurunga, 608 – Cambé, PR</p>
-      </div>
-    </section>
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <img src="images/banner_junina.jpg" alt="Festa Junina Nordestina" class="hero-image">
+                <div class="hero-content">
+                    <h2>Prepare o Chapéu e Venha Pro Arraiá!</h2>
+                    <h3>Escola 11 de Outubro convida para uma celebração inesquecível da cultura nordestina!</h3>
+                    <a href="#inscricao" class="btn-primary">Confirme Sua Presença!</a>
+                </div>
+            </div>
+        </section>
 
-    <section class="convite-video fade-in">
-      <h2>Assista nosso convite especial!</h2>
-      <div class="video-container">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/SEU_VIDEO_AQUI" 
-          title="Vídeo de Boas-Vindas" frameborder="0" allowfullscreen></iframe>
-      </div>
-    </section>
+        <section id="sobre" class="section-padded">
+            <div class="container">
+                <h2>Uma Festa Arretada te Espera!</h2>
+                <p>Junte-se a nós para uma noite de muita alegria, comidas típicas deliciosas, música boa e as melhores brincadeiras que só o Nordeste sabe oferecer.</p>
+                <p class="date-location">
+                    <strong>Quando:</strong> 29 de Junho de 2025 às 19h<br>
+                    <strong>Onde:</strong> Pátio da Escola 11 de Outubro, Cambé - PR
+                </p>
+                <div id="fogueira-container"></div>
+            </div>
+        </section>
 
-    <section class="intro-text fade-in">
-      <p>Venha celebrar a tradição nordestina com muita alegria, música e comidas típicas!</p>
-    </section>
+        <section id="brincadeiras" class="section-padded bg-light">
+            <div class="container">
+                <h2>Diversão Garantida nas Brincadeiras!</h2>
+                <div class="brincadeiras-grid">
+                    <!-- Adicione aqui os itens das brincadeiras como no exemplo anterior -->
+                </div>
+            </div>
+        </section>
 
-  </main>
+        <section id="trajes" class="section-padded">
+            <div class="container">
+                <h2>Seu Look Junino com Sotaque Nordestino!</h2>
+                <div class="trajes-grid">
+                    <!-- Adicione os trajes masculino e feminino -->
+                </div>
+                <p class="call-to-action">Use a criatividade e venha esbanjar estilo!</p>
+            </div>
+        </section>
 
-  <div class="balao-animado"></div>
+        <section id="comidas" class="section-padded bg-light">
+            <div class="container">
+                <h2>Delícias do Nosso Arraiá!</h2>
+                <div class="comidas-grid">
+                    <!-- Adicione as comidas típicas -->
+                </div>
+            </div>
+        </section>
 
-  <footer>
-    <div class="fogueira-footer"></div>
-    <p>📍 Rua Prof. Bento Mussurunga, 608 – Cambé – PR | ☎️ (43) 3253-1692</p>
-    <p>&copy; 2025 Escola 11 de Outubro - Todos os direitos reservados</p>
-  </footer>
+        <section id="inscricao" class="section-padded">
+            <div class="container">
+                <h2>Confirme Sua Presença!</h2>
+                <form id="form-inscricao" class="registration-form">
+                    <div class="form-group">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="turma">Turma:</label>
+                        <input type="text" id="turma" name="turma" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email (opcional):</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="presenca">Você vai?</label>
+                        <select id="presenca" name="presenca" required>
+                            <option value="">Selecione</option>
+                            <option value="sim">Sim</option>
+                            <option value="nao">Não</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary">Enviar</button>
+                    <p id="form-message" class="message"></p>
+                </form>
+            </div>
+        </section>
+    </main>
 
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Escola 11 de Outubro - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <div id="balloon-container"></div>
+    <script src="js/script.js"></script>
 </body>
 </html>
