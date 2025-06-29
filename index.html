@@ -7,10 +7,13 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Balão animado -->
+  <div class="balao"></div>
+
   <!-- Menu fixo -->
-  <nav class="menu-fixo" role="navigation" aria-label="Menu principal">
+  <nav class="menu-fixo">
     <ul>
-      <li><a href="#home" class="ativo">Home</a></li>
+      <li><a href="#home">Home</a></li>
       <li><a href="#programacao">Programação</a></li>
       <li><a href="#comidas">Comidas</a></li>
       <li><a href="#trajes">Trajes</a></li>
@@ -18,26 +21,17 @@
     </ul>
   </nav>
 
-  <!-- Banner e convite -->
-  <header id="home" class="secao">
-    <div class="bandeirinhas" aria-hidden="true">🎏 🎏 🎏 🎏 🎏 🎏 🎏 🎏 🎏 🎏</div>
+  <!-- Banner -->
+  <header id="home" class="secao fade-in">
+    <div class="bandeirinhas">🎏 🎏 🎏 🎏 🎏 🎏 🎏 🎏 🎏 🎏</div>
     <img src="banner-junino.jpg" alt="Banner Festa Junina" class="banner" />
     <h1>Arraiá Nordestino da Escola 11 de Outubro!</h1>
     <p>Dia <strong>8 de julho</strong>, às <strong>8h da manhã</strong></p>
     <p>📍 Rua Prof. Bento Mussurunga, 608 – Cambé, PR</p>
   </header>
 
-  <!-- Vídeo -->
-  <section id="video" class="secao" tabindex="0" aria-label="Vídeo convite especial">
-    <h2>Assista nosso convite especial!</h2>
-    <div class="video-container">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/SEU_VIDEO_AQUI" 
-        title="Vídeo de Boas-Vindas" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </section>
-
   <!-- Programação -->
-  <section id="programacao" class="secao" tabindex="0" aria-label="Programação da Festa">
+  <section id="programacao" class="secao fade-in">
     <h2>Programação da Festa</h2>
     <table>
       <thead>
@@ -53,93 +47,57 @@
     </table>
   </section>
 
-  <!-- Comidas típicas -->
-  <section id="comidas" class="secao" tabindex="0" aria-label="Comidas típicas da Festa">
+  <!-- Comidas -->
+  <section id="comidas" class="secao fade-in">
     <h2>Delícias Nordestinas</h2>
     <div class="cards-container">
-      <article class="card">
-        <img src="canjica.jpg" alt="Canjica" />
-        <h3>Canjica</h3>
-      </article>
-      <article class="card">
-        <img src="pamonha.jpg" alt="Pamonha" />
-        <h3>Pamonha</h3>
-      </article>
-      <article class="card">
-        <img src="bolo-milho.jpg" alt="Bolo de Milho" />
-        <h3>Bolo de milho</h3>
-      </article>
-      <article class="card">
-        <img src="tapioca.jpg" alt="Tapioca" />
-        <h3>Tapioca</h3>
-      </article>
-      <article class="card">
-        <img src="milho-cozido.jpg" alt="Milho cozido" />
-        <h3>Milho cozido</h3>
-      </article>
+      <div class="card"><img src="canjica.jpg" alt="Canjica" /><h3>Canjica</h3></div>
+      <div class="card"><img src="pamonha.jpg" alt="Pamonha" /><h3>Pamonha</h3></div>
+      <div class="card"><img src="bolo-milho.jpg" alt="Bolo de Milho" /><h3>Bolo de Milho</h3></div>
     </div>
   </section>
 
-  <!-- Trajes típicos -->
-  <section id="trajes" class="secao" tabindex="0" aria-label="Trajes típicos para Festa">
+  <!-- Trajes -->
+  <section id="trajes" class="secao fade-in">
     <h2>Capriche no Look Junino!</h2>
-    <p>Confira sugestões de roupas típicas para brilhar no nosso Arraiá Nordestino!</p>
     <div class="roupas">
-      <div>
-        <img src="camisa-xadrez.jpg" alt="Camisa Xadrez" />
-        <a href="https://shopee.com.br/Camisa-Xadrez-Masculina" target="_blank" rel="noopener noreferrer">Camisa Xadrez</a>
-      </div>
-      <div>
-        <img src="vestido-junino.jpg" alt="Vestido Junino" />
-        <a href="https://magazineluiza.com.br/vestido-infantil-junino" target="_blank" rel="noopener noreferrer">Vestido Junino</a>
-      </div>
-      <div>
-        <img src="chapeu.jpg" alt="Chapéu de Palha" />
-        <a href="https://amazon.com.br/chapeu-festa-junina" target="_blank" rel="noopener noreferrer">Chapéu de Palha</a>
-      </div>
+      <div><img src="camisa-xadrez.jpg" alt="Camisa Xadrez" /><a href="#">Camisa Xadrez</a></div>
+      <div><img src="vestido-junino.jpg" alt="Vestido Junino" /><a href="#">Vestido Junino</a></div>
+      <div><img src="chapeu.jpg" alt="Chapeu de Palha" /><a href="#">Chapéu de Palha</a></div>
     </div>
   </section>
 
   <!-- Formulário -->
-  <section id="inscricao" class="secao" tabindex="0" aria-label="Formulário de confirmação de presença">
+  <section id="inscricao" class="secao fade-in">
     <h2>Confirme sua Presença</h2>
-    <form id="formulario" novalidate>
+    <form id="formulario" action="https://formspree.io/f/xyzwav" method="POST">
       <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" required aria-describedby="erro-nome" />
-      <small id="erro-nome" class="erro"></small>
-
+      <input type="text" id="nome" name="nome" required />
       <label for="turma">Turma:</label>
-      <input type="text" id="turma" name="turma" required aria-describedby="erro-turma" />
-      <small id="erro-turma" class="erro"></small>
-
-      <button type="submit" aria-label="Confirmar presença">Confirmar</button>
+      <input type="text" id="turma" name="turma" required />
+      <button type="submit">Confirmar</button>
     </form>
-    <div id="lista-confirmados" aria-live="polite" aria-atomic="true">
-      <h3>Confirmados:</h3>
-      <ul id="confirmados"></ul>
-    </div>
   </section>
 
-  <!-- Modal confirmação -->
-  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc" hidden>
+  <!-- Modal de confirmação -->
+  <div id="modal" class="modal" hidden>
     <div class="modal-conteudo">
-      <h2 id="modalTitle">Confirmação enviada!</h2>
-      <p id="modalDesc">Obrigado por confirmar sua presença no Arraiá Nordestino!</p>
-      <button id="btn-fechar-modal" aria-label="Fechar modal">Fechar</button>
+      <h2>Confirmação enviada!</h2>
+      <p>Obrigado por confirmar sua presença no Arraiá!</p>
+      <button id="btn-fechar-modal">Fechar</button>
     </div>
   </div>
 
+  <!-- Explosão de confete -->
+  <canvas id="confetti"></canvas>
+
+  <!-- Fogueira animada -->
+  <div class="fogueira"></div>
+
   <!-- Rodapé -->
-  <footer>
-    <div class="footer-colunas">
-      <div>
-        <p>📍 Rua Prof. Bento Mussurunga, 608 – Cambé – PR</p>
-        <p>☎️ (43) 3253-1692</p>
-      </div>
-      <div>
-        <p>&copy; 2025 Escola 11 de Outubro - Todos os direitos reservados</p>
-      </div>
-    </div>
+  <footer class="fade-in">
+    <p>📍 Rua Prof. Bento Mussurunga, 608 – Cambé – PR | ☎️ (43) 3253-1692</p>
+    <p>&copy; 2025 Escola 11 de Outubro - Todos os direitos reservados</p>
   </footer>
 
   <script src="script.js"></script>
