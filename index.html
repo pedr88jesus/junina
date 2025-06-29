@@ -1,50 +1,56 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Arraiá Nordestino - Escola 11 de Outubro</title>
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arraiá Nordestino - Escola 11 de Outubro</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <nav class="menu" role="navigation" aria-label="Menu principal">
-    <a href="index.html" class="active" aria-current="page">Home</a>
-    <a href="programacao.html">Programação</a>
-    <a href="comidas.html">Comidas</a>
-    <a href="trajes.html">Trajes</a>
-    <a href="inscricao.html">Inscrição</a>
-  </nav>
-
-  <header class="fade-in" role="banner">
-    <div class="banner-container">
-      <img src="images/banner-junino.jpg" alt="Banner Festa Junina" class="banner" />
-      <h1>Arraiá Nordestino da Escola 11 de Outubro!</h1>
-      <p>Dia <strong>8 de julho</strong>, às <strong>8h da manhã</strong></p>
-      <p>📍 Rua Prof. Bento Mussurunga, 608 – Cambé, PR</p>
-    </div>
+  <header class="sticky-header">
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html" class="active">Início</a></li>
+        <li><a href="programacao.html">Programação</a></li>
+        <li><a href="comidas.html">Comidas</a></li>
+        <li><a href="trajes.html">Trajes</a></li>
+        <li><a href="inscricao.html">Inscrição</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <section id="video" class="fade-in" aria-labelledby="video-title">
-    <h2 id="video-title">Assista nosso convite especial!</h2>
-    <div class="video-container">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/SEU_VIDEO_AQUI" title="Vídeo de Boas-Vindas" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </section>
+  <main>
+    <section class="banner-section">
+      <img src="images/banner-junino.jpg" alt="Banner Festa Junina" class="banner-img" />
+      <div class="banner-text">
+        <h1>Arraiá Nordestino da Escola 11 de Outubro!</h1>
+        <p><strong>Dia 8 de julho, às 8h da manhã</strong></p>
+        <p>📍 Rua Prof. Bento Mussurunga, 608 – Cambé, PR</p>
+      </div>
+    </section>
 
-  <section id="sobre" class="fade-in" aria-labelledby="sobre-title">
-    <h2 id="sobre-title">Venha celebrar conosco!</h2>
-    <p>Um dia de muita alegria, música, comidas típicas e brincadeiras para todas as idades.</p>
-  </section>
+    <section class="convite-video fade-in">
+      <h2>Assista nosso convite especial!</h2>
+      <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/SEU_VIDEO_AQUI" 
+          title="Vídeo de Boas-Vindas" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </section>
 
-  <footer role="contentinfo">
+    <section class="intro-text fade-in">
+      <p>Venha celebrar a tradição nordestina com muita alegria, música e comidas típicas!</p>
+    </section>
+
+  </main>
+
+  <div class="balao-animado"></div>
+
+  <footer>
+    <div class="fogueira-footer"></div>
     <p>📍 Rua Prof. Bento Mussurunga, 608 – Cambé – PR | ☎️ (43) 3253-1692</p>
     <p>&copy; 2025 Escola 11 de Outubro - Todos os direitos reservados</p>
   </footer>
 
-  <div id="confete-container"></div>
-  <div class="balao-animado" aria-hidden="true"></div>
-  <div class="fogueira-footer" aria-hidden="true"></div>
-
-<script src="script.js"></script>
 </body>
 </html>

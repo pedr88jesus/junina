@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" >
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,45 +8,43 @@
   <script defer src="script.js"></script>
 </head>
 <body>
+  <header class="sticky-header">
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="programacao.html" class="active">Programação</a></li>
+        <li><a href="comidas.html">Comidas</a></li>
+        <li><a href="trajes.html">Trajes</a></li>
+        <li><a href="inscricao.html">Inscrição</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<header class="sticky-header">
-  <nav>
-    <ul class="menu">
-      <li><a href="index.html">Início</a></li>
-      <li><a href="programacao.html" class="active">Programação</a></li>
-      <li><a href="comidas.html">Comidas</a></li>
-      <li><a href="trajes.html">Trajes</a></li>
-      <li><a href="inscricao.html">Inscrição</a></li>
-    </ul>
-  </nav>
-</header>
+  <main>
+    <section class="programacao fade-in">
+      <h1>Programação da Festa</h1>
+      <table>
+        <thead>
+          <tr><th>Horário</th><th>Atividade</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>08:00</td><td>Abertura com música e boas-vindas</td></tr>
+          <tr><td>08:30</td><td>Quadrilha mirim e juvenil</td></tr>
+          <tr><td>09:30</td><td>Concurso de trajes típicos</td></tr>
+          <tr><td>10:00</td><td>Brincadeiras juninas (pescaria, argola, correio elegante)</td></tr>
+          <tr><td>11:00</td><td>Encerramento com música e fogueira</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
 
-<main>
-  <section class="programacao-section fade-in">
-    <h1>Programação da Festa</h1>
-    <table>
-      <thead>
-        <tr>
-          <th>Horário</th>
-          <th>Atividade</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>08:00</td><td>Abertura com música e boas-vindas</td></tr>
-        <tr><td>08:30</td><td>Quadrilha mirim e juvenil</td></tr>
-        <tr><td>09:30</td><td>Concurso de trajes típicos</td></tr>
-        <tr><td>10:00</td><td>Brincadeiras juninas (pescaria, argola, correio elegante)</td></tr>
-        <tr><td>11:00</td><td>Encerramento com forró e fogueira</td></tr>
-      </tbody>
-    </table>
-  </section>
-</main>
+  <!-- Balão animado -->
+  <div class="balao-animado"></div>
 
-<footer>
-  <div class="fogueira-footer"></div>
-  <p>📍 Rua Prof. Bento Mussurunga, 608 – Cambé – PR | ☎️ (43) 3253-1692</p>
-  <p>&copy; 2025 Escola 11 de Outubro - Todos os direitos reservados</p>
-</footer>
-
+  <footer>
+    <div class="fogueira-footer"></div>
+    <p>📍 Rua Prof. Bento Mussurunga, 608 – Cambé – PR | ☎️ (43) 3253-1692</p>
+    <p>&copy; 2025 Escola 11 de Outubro - Todos os direitos reservados</p>
+  </footer>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" >
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,57 +8,58 @@
   <script defer src="script.js"></script>
 </head>
 <body>
+  <header class="sticky-header">
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="programacao.html">Programação</a></li>
+        <li><a href="comidas.html" class="active">Comidas</a></li>
+        <li><a href="trajes.html">Trajes</a></li>
+        <li><a href="inscricao.html">Inscrição</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<header class="sticky-header">
-  <nav>
-    <ul class="menu">
-      <li><a href="index.html">Início</a></li>
-      <li><a href="programacao.html">Programação</a></li>
-      <li><a href="comidas.html" class="active">Comidas</a></li>
-      <li><a href="trajes.html">Trajes</a></li>
-      <li><a href="inscricao.html">Inscrição</a></li>
-    </ul>
-  </nav>
-</header>
+  <main>
+    <section class="comidas fade-in">
+      <h1>Delícias Nordestinas</h1>
+      <div class="cards-container">
+        <div class="card">
+          <img src="images/canjica.jpg" alt="Canjica" />
+          <h3>Canjica</h3>
+          <p>Doce tradicional feito com milho branco e leite de coco.</p>
+        </div>
+        <div class="card">
+          <img src="images/pamonha.jpg" alt="Pamonha" />
+          <h3>Pamonha</h3>
+          <p>Milho verde ralado e cozido na folha de milho, delicioso e típico.</p>
+        </div>
+        <div class="card">
+          <img src="images/bolo-milho.jpg" alt="Bolo de Milho" />
+          <h3>Bolo de Milho</h3>
+          <p>Macio e doce, o bolo de milho é presença garantida na festa.</p>
+        </div>
+        <div class="card">
+          <img src="images/tapioca.jpg" alt="Tapioca" />
+          <h3>Tapioca</h3>
+          <p>Goma de mandioca preparada com recheios doces e salgados.</p>
+        </div>
+        <div class="card">
+          <img src="images/milho-cozido.jpg" alt="Milho Cozido" />
+          <h3>Milho Cozido</h3>
+          <p>Simples, gostoso e tradicional para acompanhar a festa.</p>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<main>
-  <section class="comidas-section fade-in">
-    <h1>Delícias Nordestinas</h1>
-    <div class="comidas-lista">
-      <div class="comida-item">
-        <img src="images/canjica.jpg" alt="Canjica" />
-        <h3>Canjica</h3>
-        <p>Doce tradicional feito com milho branco e leite de coco.</p>
-      </div>
-      <div class="comida-item">
-        <img src="images/pamonha.jpg" alt="Pamonha" />
-        <h3>Pamonha</h3>
-        <p>Preparado com milho verde ralado e cozido em palha.</p>
-      </div>
-      <div class="comida-item">
-        <img src="images/bolo-milho.jpg" alt="Bolo de Milho" />
-        <h3>Bolo de Milho</h3>
-        <p>Fofinho e doce, feito com milho fresco e ingredientes tradicionais.</p>
-      </div>
-      <div class="comida-item">
-        <img src="images/tapioca.jpg" alt="Tapioca" />
-        <h3>Tapioca</h3>
-        <p>Prato típico feito com goma de mandioca, recheado de várias formas.</p>
-      </div>
-      <div class="comida-item">
-        <img src="images/milho-cozido.jpg" alt="Milho Cozido" />
-        <h3>Milho Cozido</h3>
-        <p>Milho verde cozido na hora, perfeito para saborear no Arraiá.</p>
-      </div>
-    </div>
-  </section>
-</main>
+  <!-- Balão animado -->
+  <div class="balao-animado"></div>
 
-<footer>
-  <div class="fogueira-footer"></div>
-  <p>📍 Rua Prof. Bento Mussurunga, 608 – Cambé – PR | ☎️ (43) 3253-1692</p>
-  <p>&copy; 2025 Escola 11 de Outubro - Todos os direitos reservados</p>
-</footer>
-
+  <footer>
+    <div class="fogueira-footer"></div>
+    <p>📍 Rua Prof. Bento Mussurunga, 608 – Cambé – PR | ☎️ (43) 3253-1692</p>
+    <p>&copy; 2025 Escola 11 de Outubro - Todos os direitos reservados</p>
+  </footer>
 </body>
 </html>

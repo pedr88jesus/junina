@@ -1,121 +1,106 @@
-document.addEventListener('DOMContentLoaded', () => {
-  inicializarAnimacoesScroll();
-  configurarFormulario();
-});
+// Fade in animation ao rolar
+function animaSecoes() {
+  const elementos = document.querySelectorAll('.fade-in');
+  const windowMetade = window.innerHeight * 0.8;
 
-// Fade-in das seções com Intersection Observer
-function inicializarAnimacoesScroll() {
-  const fadeEls = document.querySelectorAll('.fade-in');
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting) {
-        entry.target.style.animationPlayState = 'running';
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.3 });
-  fadeEls.forEach(el => {
-    el.style.animationPlayState = 'paused';
-    observer.observe(el);
+  elementos.forEach(el => {
+    const topoElemento = el.getBoundingClientRect().top;
+    if (topoElemento < windowMetade) {
+      el.classList.add('visible');
+    }
   });
 }
 
-// Configuração do formulário na página inscrição
-function configurarFormulario() {
+// Validação simples do formulário com feedback
+function validarFormulario(form) {
+  let valido = true;
+  const inputs = form.querySelectorAll('input[required]');
+  inputs.forEach(input => {
+    const erroEl = input.nextElementSibling;
+    if (!input.checkValidity()) {
+      erroEl.textContent = input.validationMessage;
+      valido = false;
+    } else {
+      erroEl.textContent = '';
+    }
+  });
+  return valido;
+}
+
+// Modal confirmação
+function abrirModal() {
+  const modal = document.getElementById('modalConfirmacao');
+  modal.classList.remove('hidden');
+}
+
+function fecharModal() {
+  const modal = document.getElementById('modalConfirmacao');
+  modal.classList.add('hidden');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Anima seções
+  animaSecoes();
+  window.addEventListener('scroll', animaSecoes);
+
+  // Formulário
   const form = document.getElementById('formulario');
-  if (!form) return; // só ativa se houver formulário
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
 
-  const nome = form.querySelector('#nome');
-  const turma = form.querySelector('#turma');
-  const errorNome = document.getElementById('error-nome');
-  const errorTurma = document.getElementById('error-turma');
+      if (!validarFormulario(form)) return;
 
-  const modal = document.getElementById('modal-confirmacao');
-  const btnFecharModal = modal?.querySelector('#fechar-modal');
-  const confeteContainer = document.getElementById('confete-container');
-
-  btnFecharModal?.addEventListener('click', () => {
-    modal.classList.add('hidden');
-    pararConfete();
-  });
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    errorNome.textContent = '';
-    errorTurma.textContent = '';
-
-    let valid = true;
-    if (nome.value.trim() === '') {
-      errorNome.textContent = 'Por favor, preencha o nome.';
-      valid = false;
-    }
-    if (turma.value.trim() === '') {
-      errorTurma.textContent = 'Por favor, preencha a turma.';
-      valid = false;
-    }
-    if (!valid) return;
-
-    const dados = new FormData(form);
-
-    try {
-      const resposta = await fetch(form.action, {
-        method: form.method,
-        body: dados,
-        headers: {
-          'Accept': 'application/json'
+      // Enviar para Formspree
+      const data = new FormData(form);
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+          abrirModal();
+          form.reset();
+          animarConfete();
+        } else {
+          alert('Erro ao enviar, tente novamente mais tarde.');
         }
-      });
-
-      if (resposta.ok) {
-        form.reset();
-        modal.classList.remove('hidden');
-        iniciarConfete();
-      } else {
-        alert('Erro ao enviar. Por favor, tente novamente.');
+      } catch {
+        alert('Erro de rede, verifique sua conexão.');
       }
-    } catch (error) {
-      alert('Erro na conexão. Tente novamente mais tarde.');
-    }
-  });
+    });
 
-  // Confete animado
-  let confetePieces = [];
-  let confeteInterval = null;
+    // Fechar modal botão
+    const btnFechar = document.getElementById('btnFecharModal');
+    btnFechar.addEventListener('click', fecharModal);
 
-  function criarConfete() {
+    // Fechar modal ao clicar fora do conteúdo
+    const modal = document.getElementById('modalConfirmacao');
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) fecharModal();
+    });
+  }
+});
+
+// Confetes animados
+function animarConfete() {
+  const cores = ['#f44336', '#ffeb3b', '#4caf50', '#2196f3', '#ff9800', '#9c27b0'];
+  const confetes = [];
+
+  for (let i = 0; i < 150; i++) {
     const confete = document.createElement('div');
     confete.classList.add('confete');
+    confete.style.backgroundColor = cores[Math.floor(Math.random() * cores.length)];
     confete.style.left = Math.random() * window.innerWidth + 'px';
-    confete.style.backgroundColor = randomCorConfete();
-    confete.style.animationDuration = 2 + Math.random() * 1.5 + 's';
-    confete.style.opacity = 1;
-    confeteContainer.appendChild(confete);
-
-    setTimeout(() => {
-      confete.remove();
-      confetePieces = confetePieces.filter(c => c !== confete);
-    }, 3000);
-
-    confetePieces.push(confete);
+    confete.style.animationDelay = (Math.random() * 2) + 's';
+    confete.style.width = confete.style.height = (Math.random() * 8 + 5) + 'px';
+    confete.style.opacity = Math.random();
+    document.body.appendChild(confete);
+    confetes.push(confete);
   }
 
-  function iniciarConfete() {
-    if (confeteInterval) clearInterval(confeteInterval);
-    confeteInterval = setInterval(criarConfete, 150);
-    setTimeout(() => {
-      pararConfete();
-    }, 3500);
-  }
-
-  function pararConfete() {
-    clearInterval(confeteInterval);
-    confetePieces.forEach(c => c.remove());
-    confetePieces = [];
-  }
-
-  function randomCorConfete() {
-    const cores = ['#f44336', '#ffeb3b', '#4caf50', '#2196f3', '#ff9800', '#9c27b0'];
-    return cores[Math.floor(Math.random() * cores.length)];
-  }
+  setTimeout(() => {
+    confetes.forEach(c => c.remove());
+  }, 4000);
 }
