@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #fff8e1;
+  color: #3e2723;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #ffe082;
+  text-align: center;
+  padding: 2rem;
+  border-bottom: 5px solid #ffb300;
+}
+
+header img.banner {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
+
+section {
+  padding: 2rem;
+  margin: 1.5rem auto;
+  max-width: 960px;
+  background-color: #fff3e0;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+  color: #bf360c;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+table, th, td {
+  border: 1px solid #ffb74d;
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: center;
+  background-color: #fffde7;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li::before {
+  content: '🌽';
+  margin-right: 0.5rem;
+}
+
+.roupas {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.roupas div {
+  width: 200px;
+  text-align: center;
+}
+
+.roupas img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.roupas a {
+  display: inline-block;
+  background-color: #f57c00;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.roupas a:hover {
+  background-color: #e64a19;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+input, button {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background-color: #ff7043;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #e64a19;
+  transform: scale(1.05);
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #ffe082;
+  color: #4e342e;
+  margin-top: 2rem;
+}
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 600px) {
+  .roupas {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .video-container iframe {
+    width: 100%;
+    height: auto;
+  }
+}
