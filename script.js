@@ -1,4 +1,4 @@
-// Função para animação das seções na rolagem
+// Animação de seções quando aparecem na tela
 function animarSecoes() {
   const secoes = document.querySelectorAll('.secao');
   const windowHeight = window.innerHeight;
@@ -12,13 +12,13 @@ function animarSecoes() {
   });
 }
 
-// Validação simples do formulário e feedback
+// Validação e feedback do formulário
 function validarFormulario() {
   const form = document.getElementById('formulario');
   const nomeInput = form.nome;
   const turmaInput = form.turma;
-  const nomeErro = nomeInput.nextElementSibling;
-  const turmaErro = turmaInput.nextElementSibling;
+  const nomeErro = document.getElementById('erro-nome');
+  const turmaErro = document.getElementById('erro-turma');
   const listaConfirmados = document.getElementById('confirmados');
   const modal = document.getElementById('modal');
   const btnFecharModal = document.getElementById('btn-fechar-modal');
@@ -44,57 +44,57 @@ function validarFormulario() {
 
     if (!valido) return;
 
-    // Criar novo item na lista com animação
+    // Adiciona à lista
     const li = document.createElement('li');
     li.textContent = `${nomeInput.value.trim()} (Turma: ${turmaInput.value.trim()})`;
     listaConfirmados.appendChild(li);
 
-    // Limpar campos
+    // Anima entrada do item
+    setTimeout(() => {
+      li.style.opacity = '1';
+      li.style.transform = 'translateX(0)';
+    }, 10);
+
     form.reset();
 
     // Mostrar modal
     modal.hidden = false;
+
+    // Focar botão fechar modal para acessibilidade
+    btnFecharModal.focus();
   });
 
+  // Evento para fechar modal ao clicar no botão
   btnFecharModal.addEventListener('click', () => {
     modal.hidden = true;
   });
 
-  // Fechar modal com ESC
-  document.addEventListener('keydown', e => {
+  // Fechar modal ao pressionar ESC
+  document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !modal.hidden) {
       modal.hidden = true;
     }
   });
 }
 
-// Função para destacar link ativo no menu conforme rola a página
-function destacarMenu() {
-  const links = document.querySelectorAll('.menu-fixo a');
-  const secoes = Array.from(links).map(link => {
-    const href = link.getAttribute('href');
-    if (!href.startsWith('#')) return null;
-    return document.querySelector(href);
+// Animações do botão confirmar
+function animarBotaoConfirmar() {
+  const botao = document.querySelector('button[type="submit"]');
+  botao.addEventListener('mouseenter', () => {
+    botao.textContent = '🌽 Confirmar 🌽';
+    botao.style.transform = 'scale(1.05)';
   });
-
-  window.addEventListener('scroll', () => {
-    const scrollPos = window.scrollY + window.innerHeight / 3;
-
-    secoes.forEach((secao, idx) => {
-      if (!secao) return;
-      if (scrollPos >= secao.offsetTop) {
-        links.forEach(l => l.classList.remove('ativo'));
-        links[idx].classList.add('ativo');
-      }
-    });
+  botao.addEventListener('mouseleave', () => {
+    botao.textContent = 'Confirmar';
+    botao.style.transform = 'scale(1)';
   });
 }
 
+// Inicialização geral
 function inicializarSite() {
-  animarSecoes();
   validarFormulario();
-  destacarMenu();
-
+  animarBotaoConfirmar();
+  animarSecoes();
   window.addEventListener('scroll', animarSecoes);
 }
 
