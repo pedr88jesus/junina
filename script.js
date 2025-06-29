@@ -1,32 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
   inicializarAnimacoesScroll();
-  inicializarBalao();
   configurarFormulario();
 });
 
-// Fade-in das seções
+// Fade-in das seções com Intersection Observer
 function inicializarAnimacoesScroll() {
   const fadeEls = document.querySelectorAll('.fade-in');
-  const observer = new IntersectionObserver((entries) => {
+  const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if(entry.isIntersecting) {
         entry.target.style.animationPlayState = 'running';
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.2 });
+  }, { threshold: 0.3 });
   fadeEls.forEach(el => {
     el.style.animationPlayState = 'paused';
     observer.observe(el);
   });
 }
 
-// Cria o balão animado (já no HTML, só anima com CSS)
-
-// Formulário com Formspree, confete e modal de confirmação
+// Configuração do formulário na página inscrição
 function configurarFormulario() {
   const form = document.getElementById('formulario');
-  if (!form) return; // só ativa onde tiver o formulário
+  if (!form) return; // só ativa se houver formulário
 
   const nome = form.querySelector('#nome');
   const turma = form.querySelector('#turma');
@@ -34,7 +31,7 @@ function configurarFormulario() {
   const errorTurma = document.getElementById('error-turma');
 
   const modal = document.getElementById('modal-confirmacao');
-  const btnFecharModal = modal ? modal.querySelector('#fechar-modal') : null;
+  const btnFecharModal = modal?.querySelector('#fechar-modal');
   const confeteContainer = document.getElementById('confete-container');
 
   btnFecharModal?.addEventListener('click', () => {
@@ -82,7 +79,7 @@ function configurarFormulario() {
     }
   });
 
-  // --- Confete ---
+  // Confete animado
   let confetePieces = [];
   let confeteInterval = null;
 
