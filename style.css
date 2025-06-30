@@ -285,14 +285,24 @@ footer {
 
 @keyframes subirBalao {
   0% {
-    transform: translateY(0);
-    opacity: 0;
+    transform: translateY(0) translateX(0);
+    opacity: 1;
+  }
+  25% {
+    transform: translateY(-30vh) translateX(-10px);
+  }
+  50% {
+    transform: translateY(-60vh) translateX(10px);
+  }
+  75% {
+    transform: translateY(-90vh) translateX(-10px);
   }
   100% {
-    transform: translateY(-120vh);
+    transform: translateY(-120vh) translateX(0);
     opacity: 0;
   }
 }
+
 
 
 /* Fogueira animada (CSS) */
