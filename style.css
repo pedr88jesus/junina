@@ -1,6 +1,6 @@
 :root {
-  --cor-principal: #ff671f;
-  --cor-secundaria: #ffd54f;
+  --cor-principal: #ff6600;
+  --cor-secundaria: #ffe082;
   --fonte: 'Fredoka', sans-serif;
 }
 
@@ -12,113 +12,186 @@
 
 body {
   font-family: var(--fonte);
-  background: linear-gradient(to bottom, #fff8e1, #ffecd2);
+  background: linear-gradient(to bottom, #fff8e1, #ffe0b2);
   color: #333;
+  overflow-x: hidden;
 }
 
-.hero {
-  background: url('https://i.ibb.co/6rM12hN/festa-bg.jpg') center/cover no-repeat;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  position: relative;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-}
-
-.hero h1 {
-  font-size: 4rem;
-  color: var(--cor-secundaria);
-}
-
-.hero h1 span {
-  color: white;
-}
-
-.hero p {
-  font-size: 1.3rem;
-  margin: 1rem 0;
-}
-
-.btn {
+.cabecalho {
   background: var(--cor-principal);
   color: white;
-  padding: 0.7rem 1.5rem;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background: darkorange;
-}
-
-.secao {
-  padding: 3rem 1.5rem;
+  padding: 2rem;
   text-align: center;
 }
 
-.secao h2 {
-  font-size: 2rem;
-  color: var(--cor-principal);
-  margin-bottom: 1rem;
+.cabecalho h1 {
+  font-size: 2.5rem;
 }
 
-.secao ul {
-  list-style: none;
+.cabecalho p {
   font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.atracoes, .roupas, .video, .form-link, .formulario {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+h2 {
+  color: var(--cor-principal);
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1rem;
   margin-top: 1rem;
 }
 
-.card {
-  background: var(--cor-secundaria);
-  padding: 1rem;
+.card, .roupa {
+  background: white;
   border-radius: 10px;
-  font-size: 1.1rem;
+  padding: 1rem;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   transition: transform 0.3s;
 }
 
-.card:hover {
+.card img, .roupa img {
+  width: 100%;
+  border-radius: 10px;
+  height: 160px;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+}
+
+.card:hover, .roupa:hover {
   transform: scale(1.05);
 }
 
-footer {
-  text-align: center;
+.btn, .btn-destaque {
+  display: inline-block;
   background: var(--cor-principal);
   color: white;
+  padding: 0.7rem 1.2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  margin-top: 1rem;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover, .btn-destaque:hover {
+  background: #e65100;
+}
+
+iframe {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+footer {
+  background: var(--cor-principal);
+  color: white;
+  text-align: center;
   padding: 1rem;
+  margin-top: 2rem;
+}
+
+/* Fogueira animada */
+.fogueira {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin: 2rem 0;
+}
+
+.fogo {
+  width: 20px;
+  height: 80px;
+  background: radial-gradient(circle, orange 20%, red 80%);
+  border-radius: 50% 50% 0 0;
+  animation: chamas 0.8s infinite alternate;
+}
+
+.fogo:nth-child(2) { animation-delay: 0.2s; }
+.fogo:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes chamas {
+  from {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  to {
+    transform: scaleY(1.5);
+    opacity: 0.6;
+  }
+}
+
+/* Formulário */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: auto;
+  gap: 1rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+input[type="text"], input[type="tel"] {
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+button {
+  background: var(--cor-principal);
+  color: white;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #e65100;
+}
+
+label {
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+/* Bandeirinhas no topo */
+.bandeirinhas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100px;
+  width: 100%;
+  background: url('https://i.ibb.co/tsKRVJn/bandeirinhas.png') repeat-x;
+  background-size: contain;
+  z-index: 10;
+  pointer-events: none;
 }
 .balao-flutuante {
   position: fixed;
   bottom: -100px;
   width: 40px;
   animation: subirBalao linear infinite;
-  z-index: 999;
+  z-index: 50;
+  pointer-events: none;
 }
 
 @keyframes subirBalao {
   to {
-    transform: translateY(-120vh);
+    transform: translateY(-120vh) rotate(360deg);
+    opacity: 0;
   }
 }
