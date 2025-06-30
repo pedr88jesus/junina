@@ -286,10 +286,10 @@ footer {
 @keyframes subirBalao {
   0% {
     transform: translateY(0) rotate(0deg);
-    opacity: 1;
+    opacity: 0;
   }
   100% {
-    transform: translateY(-120vh) rotate(360deg);
+    transform: translateY(-120vh); 
     opacity: 0;
   }
 }
