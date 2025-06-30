@@ -1,39 +1,53 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🎊 Festa Junina • Escola 11 de Outubro</title>
+  <title>Festa Junina | Escola 11 de Outubro</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="https://i.imgur.com/DdJk1xH.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <header>
-    <h1>Festa Junina <span>2025</span></h1>
-    <p>Escola 11 de Outubro • Tema: Viva o Nordeste!</p>
+
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Festa Junina <span>2025</span></h1>
+      <p>Escola 11 de Outubro convida você para um arraiá inesquecível!</p>
+      <a href="#programacao" class="btn">Ver programação</a>
+    </div>
   </header>
 
-  <div class="bandeirinhas"></div>
+  <section class="secao destaque" id="programacao">
+    <h2>📅 Programação</h2>
+    <ul>
+      <li><strong>15:00</strong> – Abertura com quadrilha mirim</li>
+      <li><strong>16:30</strong> – Brincadeiras típicas</li>
+      <li><strong>18:00</strong> – Comidas típicas liberadas</li>
+      <li><strong>19:00</strong> – Show de forró ao vivo</li>
+    </ul>
+  </section>
 
-  <section class="container">
-    <div class="fogueira"></div>
-    <img src="https://i.imgur.com/8ybSPeW.png" class="balao" alt="Balão Junino" />
-    <div class="convite">
-      <h2>Você está convidado!</h2>
-      <p>Venha para a nossa festa com comidas típicas, quadrilhas, brincadeiras e muita música!</p>
-      <a class="btn" href="#">Confirmar presença</a>
+  <section class="secao atracoes">
+    <h2>🎉 Atrações Especiais</h2>
+    <div class="grid">
+      <div class="card">🎭 Quadrilha Tradicional</div>
+      <div class="card">🍛 Comidas Típicas</div>
+      <div class="card">🎯 Brincadeiras Divertidas</div>
+      <div class="card">🔥 Fogueira Animada</div>
     </div>
   </section>
 
-  <canvas id="confete"></canvas>
-  <canvas id="fogos"></canvas>
+  <section class="secao contato">
+    <h2>📍 Local e Contato</h2>
+    <p>📌 Escola 11 de Outubro, Rua da Alegria, 123</p>
+    <p>📱 WhatsApp: (11) 99999-9999</p>
+  </section>
 
   <footer>
-    <p>Site oficial desenvolvido com 💙 inspirado no estilo HostGator.</p>
+    <p>© 2025 Festa Junina | Desenvolvido por alunos da Escola 11 de Outubro</p>
   </footer>
 
+  <!-- Efeitos JS -->
   <script src="script.js"></script>
 </body>
 </html>

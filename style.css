@@ -1,132 +1,124 @@
-body {
+:root {
+  --cor-principal: #ff671f;
+  --cor-secundaria: #ffd54f;
+  --fonte: 'Fredoka', sans-serif;
+}
+
+* {
   margin: 0;
   padding: 0;
-  font-family: 'Fredoka', sans-serif;
-  background: linear-gradient(to bottom, #fff7e6, #ffe2b3);
-  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
-header {
-  background: #ff6600;
+body {
+  font-family: var(--fonte);
+  background: linear-gradient(to bottom, #fff8e1, #ffecd2);
+  color: #333;
+}
+
+.hero {
+  background: url('https://i.ibb.co/6rM12hN/festa-bg.jpg') center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   color: white;
-  text-align: center;
-  padding: 25px 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  position: relative;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 2.8em;
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
 }
 
-header span {
-  color: #ffeb3b;
-}
-
-header p {
-  font-size: 1.2em;
-  margin-top: 5px;
-}
-
-.container {
-  text-align: center;
-  padding: 60px 20px;
+.hero-content {
   position: relative;
   z-index: 2;
 }
 
-.balao {
-  position: absolute;
-  width: 90px;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: flutuar 6s infinite ease-in-out;
-  z-index: 1;
-  top: 30px;
+.hero h1 {
+  font-size: 4rem;
+  color: var(--cor-secundaria);
 }
 
-@keyframes flutuar {
-  0%, 100% { transform: translate(-50%, 0); }
-  50% { transform: translate(-50%, -50px); }
+.hero h1 span {
+  color: white;
 }
 
-.fogueira {
-  width: 110px;
-  height: 110px;
-  background: radial-gradient(circle, #ffcc33, #ff6600, red);
-  margin: 40px auto 10px;
-  border-radius: 50%;
-  animation: pulsar 1s infinite alternate;
-  box-shadow: 0 0 40px 20px rgba(255, 100, 0, 0.6);
-}
-
-@keyframes pulsar {
-  from { transform: scale(1); }
-  to { transform: scale(1.1); }
-}
-
-.convite {
-  background: #fff;
-  padding: 30px;
-  margin-top: 20px;
-  display: inline-block;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  max-width: 400px;
-  margin-inline: auto;
-}
-
-.convite h2 {
-  font-size: 1.8em;
-  color: #d94d00;
-}
-
-.convite p {
-  color: #444;
-  font-size: 1.1em;
-  margin: 15px 0;
+.hero p {
+  font-size: 1.3rem;
+  margin: 1rem 0;
 }
 
 .btn {
-  display: inline-block;
-  padding: 12px 22px;
-  background-color: #ff6600;
+  background: var(--cor-principal);
   color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 30px;
   text-decoration: none;
   font-weight: bold;
-  border-radius: 30px;
   transition: 0.3s;
 }
 
 .btn:hover {
-  background-color: #e65100;
+  background: darkorange;
+}
+
+.secao {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.secao h2 {
+  font-size: 2rem;
+  color: var(--cor-principal);
+  margin-bottom: 1rem;
+}
+
+.secao ul {
+  list-style: none;
+  font-size: 1.2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.card {
+  background: var(--cor-secundaria);
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.card:hover {
   transform: scale(1.05);
 }
 
-.bandeirinhas {
-  width: 100%;
-  height: 80px;
-  background-image: url('https://i.imgur.com/BoN9kdC.png');
-  background-repeat: repeat-x;
-  background-size: contain;
-  position: absolute;
-  top: 0;
-  z-index: 3;
-}
-
 footer {
-  background: #292929;
-  color: white;
   text-align: center;
-  padding: 20px 10px;
-  font-size: 0.9em;
-  margin-top: 60px;
+  background: var(--cor-principal);
+  color: white;
+  padding: 1rem;
+}
+.balao-flutuante {
+  position: fixed;
+  bottom: -100px;
+  width: 40px;
+  animation: subirBalao linear infinite;
+  z-index: 999;
 }
 
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 0;
+@keyframes subirBalao {
+  to {
+    transform: translateY(-120vh);
+  }
 }
