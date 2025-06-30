@@ -195,3 +195,37 @@ label {
     opacity: 0;
   }
 }
+.convite {
+  background: #fff3e0;
+  padding: 3rem 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.contato {
+  background: #ffe0b2;
+  padding: 2rem;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.contato a {
+  color: #d84315;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.contato a:hover {
+  text-decoration: underline;
+}
+
+.fogueira-svg {
+  display: flex;
+  justify-content: center;
+  margin: 3rem 0;
+}
+
+.fogueira-svg img {
+  width: 120px;
+  height: auto;
+}
