@@ -1,123 +1,83 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Rolagem suave para os links de navegação
-    document.querySelectorAll('nav a').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+// Confetes animados
+const confeteCanvas = document.getElementById("confete");
+const ctx = confeteCanvas.getContext("2d");
+confeteCanvas.width = window.innerWidth;
+confeteCanvas.height = window.innerHeight;
 
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
+let confetes = [];
+for (let i = 0; i < 150; i++) {
+  confetes.push({
+    x: Math.random() * confeteCanvas.width,
+    y: Math.random() * confeteCanvas.height,
+    r: Math.random() * 6 + 2,
+    d: Math.random() * 50,
+    color: `hsl(${Math.random() * 360}, 70%, 60%)`,
+    tilt: Math.random() * 10 - 10
+  });
+}
 
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
+function drawConfetes() {
+  ctx.clearRect(0, 0, confeteCanvas.width, confeteCanvas.height);
+  for (let i = 0; i < confetes.length; i++) {
+    let p = confetes[i];
+    ctx.beginPath();
+    ctx.fillStyle = p.color;
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fill();
+    p.y += Math.cos(p.d) + 1;
+    p.x += Math.sin(p.d);
+    if (p.y > confeteCanvas.height) {
+      p.y = 0;
+      p.x = Math.random() * confeteCanvas.width;
+    }
+  }
+  requestAnimationFrame(drawConfetes);
+}
+drawConfetes();
 
-    // --- Funcionalidade da Fogueira (JS para criar os elementos) ---
-    const fogueiraContainer = document.getElementById('fogueira-container');
-    if (fogueiraContainer) {
-        // Criar lenhas
-        for (let i = 0; i < 3; i++) {
-            const lenha = document.createElement('div');
-            lenha.classList.add('lenha');
-            fogueiraContainer.appendChild(lenha);
-        }
-        // Criar fogo
-        const fogo = document.createElement('div');
-        fogo.classList.add('fogo');
-        fogueiraContainer.appendChild(fogo);
-    }
+// Fogos de artifício simples
+const fogosCanvas = document.getElementById("fogos");
+const fx = fogosCanvas.getContext("2d");
+fogosCanvas.width = window.innerWidth;
+fogosCanvas.height = window.innerHeight;
 
-    // --- Funcionalidade do Balão Flutuante (JS para criar o elemento) ---
-    const balloonContainer = document.getElementById('balloon-container');
-    if (balloonContainer) {
-        // O balão já está estilizado via CSS para a animação.
-        // Se você quisesse criar vários balões ou controlá-los mais dinamicamente, usaria JS.
-        // Por enquanto, o CSS já cuida da animação de um balão único.
-        // O elemento #balloon-container já está no HTML.
-    }
+function criarFogos() {
+  const x = Math.random() * fogosCanvas.width;
+  const y = Math.random() * fogosCanvas.height / 2;
+  const particles = [];
+  for (let i = 0; i < 50; i++) {
+    particles.push({
+      x, y,
+      dx: (Math.random() - 0.5) * 5,
+      dy: (Math.random() - 0.5) * 5,
+      alpha: 1,
+      color: `hsl(${Math.random() * 360}, 100%, 50%)`
+    });
+  }
 
-    // --- Lógica do Formulário de Inscrição e Confetes ---
-    const formInscricao = document.getElementById('form-inscricao');
-    const formMessage = document.getElementById('form-message');
+  function animate() {
+    fx.fillStyle = "rgba(0, 0, 0, 0.2)";
+    fx.fillRect(0, 0, fogosCanvas.width, fogosCanvas.height);
 
-    if (formInscricao) {
-        formInscricao.addEventListener('submit', async (e) => {
-            e.preventDefault(); // Impede o envio padrão do formulário
+    particles.forEach(p => {
+      fx.globalAlpha = p.alpha;
+      fx.fillStyle = p.color;
+      fx.beginPath();
+      fx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+      fx.fill();
+      p.x += p.dx;
+      p.y += p.dy;
+      p.alpha -= 0.02;
+    });
 
-            const nome = document.getElementById('nome').value.trim();
-            const turma = document.getElementById('turma').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const presenca = document.getElementById('presenca').value;
+    particles.filter(p => p.alpha > 0);
 
-            // Validação simples
-            if (nome === '' || turma === '' || presenca === '') {
-                formMessage.textContent = 'Por favor, preencha todos os campos obrigatórios.';
-                formMessage.className = 'message error';
-                return;
-            }
+    if (particles.some(p => p.alpha > 0)) {
+      requestAnimationFrame(animate);
+    }
+  }
 
-            // Substitua abaixo pela sua URL do Formspree
-            const formspreeEndpoint = 'https://formspree.io/f/seu-codigo-do-formspree';
+  animate();
+}
 
-            try {
-                const response = await fetch(formspreeEndpoint, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        nome: nome,
-                        turma: turma,
-                        email: email,
-                        presenca: presenca,
-                        origem: 'Site Festa Junina Escola 11 de Outubro'
-                    })
-                });
-
-                if (response.ok) {
-                    formMessage.textContent = 'Sua presença foi confirmada com sucesso! Muito obrigado!';
-                    formMessage.className = 'message success';
-                    formInscricao.reset(); // Limpa o formulário
-
-                    // --- CHUVA DE CONFETES! ---
-                    triggerConfetti();
-
-                } else {
-                    const data = await response.json();
-                    formMessage.textContent = `Erro ao enviar: ${data.errors ? data.errors.map(err => err.message).join(', ') : 'Tente novamente.'}`;
-                    formMessage.className = 'message error';
-                }
-            } catch (error) {
-                console.error('Erro na requisição:', error);
-                formMessage.textContent = 'Ocorreu um erro ao confirmar sua presença. Por favor, tente mais tarde.';
-                formMessage.className = 'message error';
-            }
-        });
-    }
-
-    // --- Função para a Chuva de Confetes ---
-    function triggerConfetti() {
-        const confettiCount = 50;
-        const colors = ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4CAF50', '#8BC34A', '#CDDC39', '#FFEB3B', '#FFC107', '#FF9800', '#FF5722'];
-
-        for (let i = 0; i < confettiCount; i++) {
-            const confetti = document.createElement('div');
-            confetti.classList.add('confetti');
-            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-            confetti.style.left = `${Math.random() * 100}vw`;
-            confetti.style.top = `${Math.random() * -20}px`;
-            confetti.style.animationDelay = `${Math.random() * 0.5}s`;
-            confetti.style.transform = `scale(${Math.random() * 0.8 + 0.2}) rotate(${Math.random() * 360}deg)`;
-
-            document.body.appendChild(confetti);
-
-            confetti.addEventListener('animationend', () => {
-                confetti.remove();
-            });
-        }
-    }
-});
+setInterval(criarFogos, 2000);

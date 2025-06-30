@@ -1,119 +1,39 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arraiá Nordestino da Escola 11 de Outubro</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎊 Festa Junina • Escola 11 de Outubro</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://i.imgur.com/DdJk1xH.png" />
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <img src="images/logo_escola.png" alt="Logo Escola 11 de Outubro">
-                <h1>Escola 11 de Outubro</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Início</a></li>
-                    <li><a href="#brincadeiras">Brincadeiras</a></li>
-                    <li><a href="#trajes">Trajes Típicos</a></li>
-                    <li><a href="#inscricao">Inscrição</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <header>
+    <h1>Festa Junina <span>2025</span></h1>
+    <p>Escola 11 de Outubro • Tema: Viva o Nordeste!</p>
+  </header>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="container">
-                <img src="images/banner_junina.jpg" alt="Festa Junina Nordestina" class="hero-image">
-                <div class="hero-content">
-                    <h2>Prepare o Chapéu e Venha Pro Arraiá!</h2>
-                    <h3>Escola 11 de Outubro convida para uma celebração inesquecível da cultura nordestina!</h3>
-                    <a href="#inscricao" class="btn-primary">Confirme Sua Presença!</a>
-                </div>
-            </div>
-        </section>
+  <div class="bandeirinhas"></div>
 
-        <section id="sobre" class="section-padded">
-            <div class="container">
-                <h2>Uma Festa Arretada te Espera!</h2>
-                <p>Junte-se a nós para uma noite de muita alegria, comidas típicas deliciosas, música boa e as melhores brincadeiras que só o Nordeste sabe oferecer.</p>
-                <p class="date-location">
-                    <strong>Quando:</strong> 29 de Junho de 2025 às 19h<br>
-                    <strong>Onde:</strong> Pátio da Escola 11 de Outubro, Cambé - PR
-                </p>
-                <div id="fogueira-container"></div>
-            </div>
-        </section>
+  <section class="container">
+    <div class="fogueira"></div>
+    <img src="https://i.imgur.com/8ybSPeW.png" class="balao" alt="Balão Junino" />
+    <div class="convite">
+      <h2>Você está convidado!</h2>
+      <p>Venha para a nossa festa com comidas típicas, quadrilhas, brincadeiras e muita música!</p>
+      <a class="btn" href="#">Confirmar presença</a>
+    </div>
+  </section>
 
-        <section id="brincadeiras" class="section-padded bg-light">
-            <div class="container">
-                <h2>Diversão Garantida nas Brincadeiras!</h2>
-                <div class="brincadeiras-grid">
-                    <!-- Adicione aqui os itens das brincadeiras como no exemplo anterior -->
-                </div>
-            </div>
-        </section>
+  <canvas id="confete"></canvas>
+  <canvas id="fogos"></canvas>
 
-        <section id="trajes" class="section-padded">
-            <div class="container">
-                <h2>Seu Look Junino com Sotaque Nordestino!</h2>
-                <div class="trajes-grid">
-                    <!-- Adicione os trajes masculino e feminino -->
-                </div>
-                <p class="call-to-action">Use a criatividade e venha esbanjar estilo!</p>
-            </div>
-        </section>
+  <footer>
+    <p>Site oficial desenvolvido com 💙 inspirado no estilo HostGator.</p>
+  </footer>
 
-        <section id="comidas" class="section-padded bg-light">
-            <div class="container">
-                <h2>Delícias do Nosso Arraiá!</h2>
-                <div class="comidas-grid">
-                    <!-- Adicione as comidas típicas -->
-                </div>
-            </div>
-        </section>
-
-        <section id="inscricao" class="section-padded">
-            <div class="container">
-                <h2>Confirme Sua Presença!</h2>
-                <form id="form-inscricao" class="registration-form">
-                    <div class="form-group">
-                        <label for="nome">Nome:</label>
-                        <input type="text" id="nome" name="nome" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="turma">Turma:</label>
-                        <input type="text" id="turma" name="turma" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email (opcional):</label>
-                        <input type="email" id="email" name="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="presenca">Você vai?</label>
-                        <select id="presenca" name="presenca" required>
-                            <option value="">Selecione</option>
-                            <option value="sim">Sim</option>
-                            <option value="nao">Não</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn-primary">Enviar</button>
-                    <p id="form-message" class="message"></p>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Escola 11 de Outubro - Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
-    <div id="balloon-container"></div>
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
