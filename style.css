@@ -1,0 +1,449 @@
+:root {
+  --cor-principal: #ff6600;
+  --cor-secundaria: #ffe082;
+  --cor-destaque: #d84315;
+  --fonte-principal: 'Fredoka', sans-serif;
+  --fonte-secundaria: 'Poppins', sans-serif;
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--fonte-secundaria);
+  background: linear-gradient(to bottom, #fff8e1, #ffe0b2);
+  color: #333;
+  overflow-x: hidden;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Menu fixo no topo */
+.menu {
+  background: var(--cor-principal);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.menu .logo {
+  font-family: var(--fonte-principal);
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.menu ul li a {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  transition: background-color 0.3s;
+}
+
+.menu ul li a:hover,
+.menu ul li a.ativo {
+  background-color: var(--cor-destaque);
+}
+
+/* Botão destaque */
+.destaque {
+  background-color: var(--cor-destaque);
+}
+
+.destaque:hover {
+  background-color: #a83210;
+}
+
+/* Espaço para conteúdo abaixo do menu fixo */
+.cabecalho {
+  padding-top: 100px;
+  background: linear-gradient(135deg, var(--cor-principal), var(--cor-destaque));
+  color: white;
+  text-align: center;
+  padding-bottom: 3rem;
+  font-family: var(--fonte-principal);
+}
+
+.cabecalho h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.cabecalho p {
+  font-size: 1.2rem;
+}
+
+/* Hero das páginas secundárias */
+.hero-pagina {
+  background: #fff3e0;
+  padding: 3rem 1rem;
+  text-align: center;
+  font-family: var(--fonte-principal);
+  color: var(--cor-principal);
+}
+
+.hero-pagina h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-pagina p {
+  font-size: 1.25rem;
+  color: #b35e00;
+}
+
+/* Seções principais */
+section {
+  padding: 3rem 1rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Grid para cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Cards (atrações, comidas, roupas) */
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  font-family: var(--fonte-principal);
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: var(--cor-principal);
+}
+
+.card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Botões padrão */
+.btn-principal, .btn-secundario, button, a.btn-principal, a.btn-secundario {
+  display: inline-block;
+  background-color: var(--cor-principal);
+  color: white;
+  padding: 0.75rem 1.8rem;
+  font-family: var(--fonte-principal);
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.btn-principal:hover,
+.btn-secundario:hover,
+button:hover,
+a.btn-principal:hover,
+a.btn-secundario:hover {
+  background-color: var(--cor-destaque);
+}
+
+/* Botão secundário */
+.btn-secundario {
+  background-color: var(--cor-destaque);
+}
+
+/* Vídeo responsivo */
+.video iframe {
+  width: 100%;
+  max-width: 720px;
+  height: 405px;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  display: block;
+  margin: 2rem auto;
+}
+
+/* Formulário */
+form {
+  background: white;
+  max-width: 450px;
+  margin: 2rem auto;
+  padding: 2rem 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  font-family: var(--fonte-secundaria);
+}
+
+input[type="text"],
+input[type="number"],
+input[type="tel"] {
+  padding: 0.9rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1.8px solid #ddd;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus {
+  outline: none;
+  border-color: var(--cor-principal);
+}
+
+label {
+  font-size: 1rem;
+  color: #555;
+  user-select: none;
+}
+
+button[type="submit"] {
+  font-family: var(--fonte-principal);
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: 0.05rem;
+  cursor: pointer;
+}
+
+/* Rodapé */
+footer {
+  background: var(--cor-principal);
+  color: white;
+  text-align: center;
+  padding: 1.8rem 1rem;
+  font-size: 1rem;
+  font-family: var(--fonte-secundaria);
+  user-select: none;
+  margin-top: 4rem;
+}
+
+/* Bandeirinhas fixas no topo */
+.bandeirinhas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 90px;
+  width: 100%;
+  background: url('https://i.ibb.co/tsKRVJn/bandeirinhas.png') repeat-x;
+  background-size: contain;
+  z-index: 1100;
+  pointer-events: none;
+}
+
+/* Balões flutuantes */
+.balao-flutuante {
+  position: fixed;
+  bottom: -100px;
+  width: 40px;
+  animation: subirBalao linear infinite;
+  z-index: 1050;
+  pointer-events: none;
+}
+
+@keyframes subirBalao {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Fogueira animada (CSS) */
+.fogueira {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 3rem 0;
+}
+
+.fogo {
+  width: 22px;
+  height: 90px;
+  background: radial-gradient(circle, orange 25%, red 85%);
+  border-radius: 50% 50% 0 0;
+  animation: chamas 0.8s infinite alternate;
+  filter: drop-shadow(0 0 4px #f90);
+}
+
+.fogo:nth-child(2) {
+  animation-delay: 0.25s;
+}
+.fogo:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+@keyframes chamas {
+  from {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  to {
+    transform: scaleY(1.5);
+    opacity: 0.6;
+  }
+}
+
+/* Confete para envio do formulário */
+.confete {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  opacity: 0.9;
+  top: -10px;
+  border-radius: 2px;
+  animation-name: cairConfete;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@keyframes cairConfete {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Seção convite */
+.convite {
+  background: #fff3e0;
+  padding: 3rem 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+  font-family: var(--fonte-principal);
+  color: var(--cor-principal);
+  animation: fadeUp 1.5s ease-in-out both;
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Seção contato */
+.contato {
+  background: #ffe0b2;
+  padding: 2rem;
+  text-align: center;
+  font-size: 1.1rem;
+  font-family: var(--fonte-secundaria);
+  color: #d84315;
+}
+
+.contato a {
+  color: #d84315;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.contato a:hover {
+  text-decoration: underline;
+}
+
+/* Links no rodapé */
+footer a {
+  color: white;
+  text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .menu {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .menu ul {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  .cabecalho h1 {
+    font-size: 1.8rem;
+  }
+  .hero-pagina h1 {
+    font-size: 2rem;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .card img {
+    height: 140px;
+  }
+  form {
+    width: 90%;
+    padding: 1.5rem;
+  }
+}
+.confete {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  opacity: 0.9;
+  top: -10px;
+  border-radius: 2px;
+  animation-name: cairConfete;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@keyframes cairConfete {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
